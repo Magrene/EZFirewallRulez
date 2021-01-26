@@ -26,35 +26,37 @@ elseif($direction -eq "O" -and $proto -eq "TCP" -and $action -eq "Block"){
     New-NetFirewallRule -DisplayName $ruleName -Direction Outbound -LocalPort $port -Protocol TCP -Action Block
 }
 elseif($direction -eq "B" -and $proto -eq "TCP" -and $action -eq "Block"){
-    New-NetFirewallRule -DisplayName $ruleName -Direction Outbound -LocalPort $port -Protocol TCP -Action Block
+    New-NetFirewallRule -DisplayName $ruleName -Direction Inbound -LocalPort $port -Protocol TCP -Action Block
     New-NetFirewallRule -DisplayName $ruleName -Direction Outbound -LocalPort $port -Protocol TCP -Action Block
 }
 elseif($direction -eq "I" -and $proto -eq "TCP" -and $action -eq "Allow"){
-
+    New-NetFirewallRule -DisplayName $ruleName -Direction Inbound -LocalPort $port -Protocol TCP -Action Allow
 }
 elseif($direction -eq "O" -and $proto -eq "TCP" -and $action -eq "Allow"){
-
+    New-NetFirewallRule -DisplayName $ruleName -Direction Outbound -LocalPort $port -Protocol TCP -Action Allow
 }
 elseif($direction -eq "B" -and $proto -eq "TCP" -and $action -eq "Allow"){
-
+    New-NetFirewallRule -DisplayName $ruleName -Direction Inbound -LocalPort $port -Protocol TCP -Action Allow
+    New-NetFirewallRule -DisplayName $ruleName -Direction Outbound -LocalPort $port -Protocol TCP -Action Allow
 }
 elseif($direction -eq "I" -and $proto -eq "UDP" -and $action -eq "Allow"){
-
+    New-NetFirewallRule -DisplayName $ruleName -Direction Inbound -LocalPort $port -Protocol UDP -Action Allow
 }
 elseif($direction -eq "O" -and $proto -eq "UDP" -and $action -eq "Allow"){
-
+    New-NetFirewallRule -DisplayName $ruleName -Direction Outbound -LocalPort $port -Protocol UDP -Action Allow
 }
 elseif($direction -eq "B" -and $proto -eq "UDP" -and $action -eq "Allow"){
-
+    New-NetFirewallRule -DisplayName $ruleName -Direction Inbound -LocalPort $port -Protocol UDP -Action Allow
+    New-NetFirewallRule -DisplayName $ruleName -Direction Outbound -LocalPort $port -Protocol UDP -Action Allow
 }
 elseif($direction -eq "I" -and $proto -eq "UDP" -and $action -eq "Block"){
-
+    New-NetFirewallRule -DisplayName $ruleName -Direction Inbound -LocalPort $port -Protocol UDP -Action Block
 }
 elseif($direction -eq "O" -and $proto -eq "UDP" -and $action -eq "Block"){
-
+    New-NetFirewallRule -DisplayName $ruleName -Direction Inbound -LocalPort $port -Protocol UDP -Action Block
 }
 elseif($direction -eq "B" -and $proto -eq "UDP" -and $action -eq "Block"){
-
+    New-NetFirewallRule -DisplayName $ruleName -Direction Inbound -LocalPort $port -Protocol UDP -Action Block
 }
 
 
