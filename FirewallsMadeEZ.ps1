@@ -29,23 +29,23 @@ elseif($direction -eq "O" -and $proto -eq "T" -and $action -eq "B"){
 }
 elseif($direction -eq "B" -and $proto -eq "T" -and $action -eq "B"){
     $ruleName=$ruleName + "Inbound"
-    New-NetFirewallRule -DisplayName  -Direction Inbound -LocalPort $port -Protocol TCP -Action Block
+    New-NetFirewallRule -DisplayName $ruleName -Direction Inbound -LocalPort $port -Protocol TCP -Action Block
     $ruleName=$ruleName + "Outbound"
     New-NetFirewallRule -DisplayName $ruleName -Direction Outbound -LocalPort $port -Protocol TCP -Action Block
 }
 elseif($direction -eq "I" -and $proto -eq "T" -and $action -eq "A"){
     $ruleName=$ruleName + "Inbound"
-    New-NetFirewallRule -DisplayName  -Direction Inbound -LocalPort $port -Protocol TCP -Action Allow
+    New-NetFirewallRule -DisplayName $ruleName -Direction Inbound -LocalPort $port -Protocol TCP -Action Allow
 }
 elseif($direction -eq "O" -and $proto -eq "T" -and $action -eq "A"){
     $ruleName=$ruleName + "Outbound"
-    New-NetFirewallRule -DisplayName  -Direction Outbound -LocalPort $port -Protocol TCP -Action Allow
+    New-NetFirewallRule -DisplayName $ruleName -Direction Outbound -LocalPort $port -Protocol TCP -Action Allow
 }
 elseif($direction -eq "B" -and $proto -eq "TCP" -and $action -eq "A"){
     $ruleName=$ruleName + "Inbound"
-    New-NetFirewallRule -DisplayName  -Direction Inbound -LocalPort $port -Protocol TCP -Action Allow
+    New-NetFirewallRule -DisplayName $ruleName -Direction Inbound -LocalPort $port -Protocol TCP -Action Allow
     $ruleName=$ruleName + "Outbound"
-    New-NetFirewallRule -DisplayName  -Direction Outbound -LocalPort $port -Protocol TCP -Action Allow
+    New-NetFirewallRule -DisplayName $ruleName -Direction Outbound -LocalPort $port -Protocol TCP -Action Allow
 }
 elseif($direction -eq "I" -and $proto -eq "U" -and $action -eq "A"){
     $ruleName=$ruleName + "Inbound"   
@@ -73,7 +73,3 @@ elseif($direction -eq "B" -and $proto -eq "U" -and $action -eq "B"){
     $ruleName=$ruleName + "Inbound"
     New-NetFirewallRule -DisplayName $ruleName -Direction Inbound -LocalPort $port -Protocol UDP -Action Block
 }
-
-
-
-
